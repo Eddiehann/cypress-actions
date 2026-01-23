@@ -21,11 +21,4 @@ jobs:
         uses: cypress-io/github-action@v6
         with:
           browser: chrome
-          headless: true
-
-      # Upload test results (JUnit XML)
-      - name: Upload test results
-        uses: actions/upload-artifact@v4
-        with:
-          name: cypress-results
-          path: results
+          headed: false
