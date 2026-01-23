@@ -1,0 +1,40 @@
+name: Cypress Deployment Tests
+
+on:
+  pull_request:
+    types: [closed]
+    branches:
+      - main
+
+jobs:
+  cypress-tests:
+    runs-on: ubuntu-latest
+
+    steps:
+      # 1. Checkout the code
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      # 2. Install dependencies
+      - name: Install Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 20
+      - name: Install dependencies
+        run: npm ci
+
+      # 3. Run Cypress tests
+      - name: Run Cypress tests
+        run: |
+          npx cypress run \
+            --browser chrome \
+            --headless \
+            --reporter junit \
+            --reporter-options "mochaFile=results/results.xml,charts=true,reportDir=results"
+
+      # 4. Upload test results (JUnit XML)
+      - name: Upload test results
+        uses: actions/upload-artifact@v4
+        with:
+          name: cypress-results
+          path: results
