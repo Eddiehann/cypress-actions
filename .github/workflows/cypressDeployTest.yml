@@ -22,10 +22,10 @@ jobs:
         with:
           browser: electron
           headed: false
-      # Upload files as artifacts if test fails
-      - name: Upload Cypress artifacts (screenshots/videos)
+      # Upload screenshots as artifacts if test fails
+      - name: Upload Cypress artifacts (screenshots)
         if: failure()
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v6
         with:
           name: cypress-media
-          path: cypress/screenshots,cypress/videos
+          path: cypress/screenshots
