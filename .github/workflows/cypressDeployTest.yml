@@ -12,13 +12,13 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
       # Install npm dependencies, cache them correctly and run all Cypress tests
       - name: Install dependencies
         run: npm ci
 
       - name: Run Cypress tests
-        uses: cypress-io/github-action@v6
+        uses: cypress-io/github-action@v7
         with:
           browser: electron
           headed: false
