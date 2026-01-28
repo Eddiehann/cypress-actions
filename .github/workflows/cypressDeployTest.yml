@@ -11,9 +11,9 @@ jobs:
     runs-on: ubuntu-latest
 
     env:
-      CYPRESS_baseUrl: ${{ vars.DEV_ENV_URL }}
-      # CYPRESS_USER_EMAIL: ${{ secrets.TEST_USER_EMAIL }}
-      # CYPRESS_USER_PASSWORD: ${{ secrets.TEST_USER_PASSWORD }}
+      CYPRESS_baseUrl: ${{ vars.ENV_URL }}
+      CYPRESS_USER_EMAIL: ${{ vars.USER_EMAIL }}
+      CYPRESS_USER_PASSWORD: ${{ secrets.USER_PASSWORD }}
 
     steps:
       - name: Checkout
