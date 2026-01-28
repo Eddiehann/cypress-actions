@@ -4,13 +4,9 @@ export default defineConfig({
   chromeWebSecurity: false,
   video: false,
   e2e: {
-    baseUrl: process.env.CYPRESS_baseUrl,
+    baseUrl: process.env.CYPRESS_URL,
     viewportHeight: 958,
     viewportWidth: 1920,
-    env: {
-      USER: process.env.CYPRESS_USER_EMAIL,
-      PASS: process.env.CYPRESS_USER_PASSWORD
-    },
     specPattern: "cypress/e2e/**/*.cy.{js,ts}",
     setupNodeEvents(on) {
       on("task", {

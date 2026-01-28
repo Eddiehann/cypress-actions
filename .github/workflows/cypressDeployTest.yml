@@ -9,9 +9,10 @@ on:
 jobs:
   cypress-run:
     runs-on: ubuntu-latest
+    environment: main
 
     env:
-      CYPRESS_baseUrl: ${{ vars.ENV_URL }}
+      CYPRESS_URL: ${{ vars.ENV_URL }}
       CYPRESS_USER_EMAIL: ${{ vars.USER_EMAIL }}
       CYPRESS_USER_PASSWORD: ${{ secrets.USER_PASSWORD }}
 
