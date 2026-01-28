@@ -21,7 +21,7 @@ describe('example to-do app', () => {
   })
 
   it('checks that github secrets exists', () => {
-    expect(Cypress.env('USER_ENAIL')).to.equal('ehan@gmail.com')
+    expect(Cypress.env('USER_EMAIL')).to.equal('ehan@gmail.com')
     expect(Cypress.env('USER_PASSWORD')).to.equal('testpass')
     expect(Cypress.config().baseUrl).to.equal('https://dev.simu.health')
   })
