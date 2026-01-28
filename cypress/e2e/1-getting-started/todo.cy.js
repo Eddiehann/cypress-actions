@@ -21,7 +21,9 @@ describe('example to-do app', () => {
   })
 
   it('checks that github secrets exists', () => {
-    expect(CYPRESS_USER_EMAIL).to.equal('ehan@gmail.com')
+    expect(Cypress.env('USER')).to.equal('ehan@gmail.com')
+    expect(Cypress.env('PASS')).to.equal('testpass')
+    expect(Cypress.config().baseUrl).to.equal('https://dev.simu.health')
   })
 
   it('displays two todo items by default', () => {
